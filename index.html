@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom & Capital — One Good Idea Can Change Your Life</title>
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --text-primary: #171717;
+            --text-secondary: #525252;
+            --text-muted: #737373;
+            --accent: #18181B;
+            --accent-hover: #27272A;
+            --border-color: #E5E5E5;
+            --highlight: #F4F4F5;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Lora', Georgia, serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #FFF;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--highlight);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 96px 0 64px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--highlight);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.25rem;
+            line-height: 1.15;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .hero-cta .btn-sm {
+            padding: 12px 24px;
+            font-size: 1rem;
+        }
+
+        /* --- FEATURED SPOTLIGHT --- */
+        .featured-section {
+            padding: 32px 0 64px;
+        }
+
+        .featured-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: calc(var(--radius) * 1.5);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .book-cover-mock {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #FFF;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cover-mock h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .book-cover-mock p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .featured-meta {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .featured-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .featured-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        .takeaways-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .takeaways-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .takeaways-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--text-primary);
+        }
+
+        /* --- CATEGORIES GRID --- */
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 1.85rem;
+            font-weight: 600;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.05);
+        }
+
+        .category-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .category-card .book-count {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- MENTAL MODELS SECTION --- */
+        .models-section {
+            background-color: var(--highlight);
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 80px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .model-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+        }
+
+        .model-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .model-card blockquote {
+            font-style: italic;
+            color: var(--text-secondary);
+            border-left: 3px solid var(--accent);
+            padding-left: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* --- NEWSLETTER SECTION --- */
+        .newsletter-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 96px;
+            background: var(--bg-card);
+            padding: 48px;
+            border: 1px solid var(--border-color);
+            border-radius: calc(var(--radius) * 1.5);
+        }
+
+        .newsletter-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-section p {
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 64px 0;
+            background-color: #FFF;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 12px;
+        }
+
+        .footer-col h5 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 32px;
+            display: flex;
+            justify-space: space-between;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 900px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .featured-card { grid-template-columns: 1fr; }
+            .book-cover-mock { height: 240px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2.25rem; }
+            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified mobile header */
+            .hero-cta { flex-direction: column; }
+            .form-group { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV HEADER -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">Wisdom & Capital</div>
+            <ul class="nav-links">
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#mental-models">Mental Models</a></li>
+                <li><a href="#investors">Investors</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#newsletter" class="btn-sm btn-primary">Subscribe</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+        <span class="hero-badge">Curated Knowledge & Mental Models</span>
+        <h1>One good idea can change your life.</h1>
+        <p>We deconstruct, distill, and synthesize timeless wisdom from finance, philosophy, and science so you can think better and make wiser decisions.</p>
+        <div class="hero-cta">
+            <a href="#categories" class="btn-sm btn-primary">Browse Summaries</a>
+            <a href="#mental-models" class="btn-sm btn-secondary">Explore Mental Models</a>
+        </div>
+    </section>
+
+    <!-- FEATURED BOOK SECTION -->
+    <section class="featured-section container">
+        <div class="featured-card">
+            <div class="book-cover-mock">
+                <h3>The Psychology of Money</h3>
+                <p>Morgan Housel</p>
+            </div>
+            <div>
+                <div class="featured-meta">Featured Book Breakdown • 8 Min Read</div>
+                <h2 class="featured-title">Doing well with money has a little to do with how smart you are and a lot to do with how you behave.</h2>
+                <p class="featured-desc">Financial success is not a hard science. It’s a soft skill, where how you behave is more important than what you know.</p>
+                <ul class="takeaways-list">
+                    <li><strong>Freedom is the ultimate dividend:</strong> The highest form of wealth is the ability to wake up every morning and say, "I can do whatever I want today."</li>
+                    <li><strong>Getting rich vs. Staying rich:</strong> Getting rich requires taking risks and optimism. Staying rich requires humility and paranoia.</li>
+                </ul>
+                <a href="#" class="btn-sm btn-secondary">Read Full Summary →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE CATEGORIES -->
+    <section id="categories" class="container">
+        <div class="section-header">
+            <h2>Explore Categories</h2>
+        </div>
+        <div class="grid-3">
+            <div class="category-card">
+                <h3>Value Investing</h3>
+                <p>Margin of safety, intrinsic value, and capital allocation frameworks.</p>
+                <span class="book-count">14 Books Analyzed</span>
+            </div>
+            <div class="category-card">
+                <h3>Psychology & Mental Models</h3>
+                <p>Cognitive biases, multidisciplinary thinking, and decision-making.</p>
+                <span class="book-count">22 Frameworks</span>
+            </div>
+            <div class="category-card">
+                <h3>Founders & Company Stories</h3>
+                <p>Biographies and business histories of history's greatest builders.</p>
+                <span class="book-count">18 Biographies</span>
+            </div>
+            <div class="category-card">
+                <h3>Financial & Economic History</h3>
+                <p>Market cycles, manias, panics, and macroeconomic shifts over centuries.</p>
+                <span class="book-count">9 Works</span>
+            </div>
+            <div class="category-card">
+                <h3>Startups & Technology</h3>
+                <p>Zero-to-one innovation, product strategy, and venture scaling.</p>
+                <span class="book-count">12 Books</span>
+            </div>
+            <div class="category-card">
+                <h3>Big Ideas: Science & Philosophy</h3>
+                <p>Complex systems, evolutionary dynamics, stoicism, and epistemology.</p>
+                <span class="book-count">16 Classics</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENTAL MODELS HIGHLIGHT -->
+    <section id="mental-models" class="models-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Essential Mental Models</h2>
+            </div>
+            <div class="grid-2">
+                <div class="model-card">
+                    <h4>Inversion (Charlie Munger)</h4>
+                    <blockquote>"All I want to know is where I'm going to die, so I'll never go there."</blockquote>
+                    <p>Instead of thinking about how to achieve success, focus on how to avoid failure. Solve problems backwards.</p>
+                </div>
+                <div class="model-card">
+                    <h4>Margin of Safety (Benjamin Graham)</h4>
+                    <blockquote>"Build a bridge that can hold 30,000 pounds when you only drive 10,000-pound trucks."</blockquote>
+                    <p>Always leave a cushion for error, unpredictable shocks, and human miscalculation in financial and life decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter" class="container">
+        <div class="newsletter-section">
+            <h2>Build Your Personal Library of Wisdom</h2>
+            <p>Join 10,000+ readers who receive 1 timeless idea from a great book every Sunday morning.</p>
+            <form class="form-group" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Enter your email address..." required>
+                <button type="submit" class="btn-sm btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Wisdom & Capital</div>
+                    <p>Curating timeless principles for better thinking, investing, and living.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Categories</h5>
+                    <ul>
+                        <li><a href="#">Value Investing</a></li>
+                        <li><a href="#">Psychology</a></li>
+                        <li><a href="#">Mental Models</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#">Reading Lists</a></li>
+                        <li><a href="#">Investor Memos</a></li>
+                        <li><a href="#">Checklists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">RSS Feed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Wisdom & Capital. Inspired by a love of wisdom and learning.</div>
+                <div>Designed for Github Pages</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
