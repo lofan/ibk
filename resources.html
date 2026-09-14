@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Downloadable Library — Wisdom & Capital</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --text-primary: #171717;
+            --text-secondary: #525252;
+            --text-muted: #737373;
+            --accent: #18181B;
+            --accent-hover: #27272A;
+            --border-color: #E5E5E5;
+            --highlight: #F4F4F5;
+            --badge-bg: #E4E4E7;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Lora', Georgia, serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #FFF;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- PAGE TITLE HERO --- */
+        .page-hero {
+            padding: 64px 0 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 48px;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-serif);
+            font-size: 2.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+
+        /* --- RESOURCE CATEGORY NAV --- */
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-pill {
+            padding: 8px 16px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-pill:hover, .filter-pill.active {
+            background-color: var(--accent);
+            color: #FFF;
+            border-color: var(--accent);
+        }
+
+        /* --- RESOURCE SECTIONS --- */
+        .resource-group {
+            margin-bottom: 64px;
+        }
+
+        .resource-group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid var(--text-primary);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        .resource-group-header h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .resource-group-header span {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- RESOURCE CARDS GRID --- */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .resource-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-card:hover {
+            border-color: #A3A3A3;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .card-top {
+            margin-bottom: 20px;
+        }
+
+        .card-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background-color: var(--badge-bg);
+            color: var(--text-secondary);
+        }
+
+        .badge-pdf { background-color: #FEF3C7; color: #92400E; }
+        .badge-memo { background-color: #E0E7FF; color: #3730A3; }
+        .badge-audio { background-color: #D1FAE5; color: #065F46; }
+
+        .resource-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .resource-author {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .resource-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--highlight);
+            margin-top: 16px;
+        }
+
+        .file-info {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+        }
+
+        .download-btn {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .download-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 64px 0;
+            background-color: #FFF;
+            margin-top: 96px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 12px;
+        }
+
+        .footer-col h5 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: var(--text-secondary); font-size: 0.95rem; }
+        .footer-col ul li a:hover { color: var(--text-primary); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .resource-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Wisdom & Capital</a>
+            <ul class="nav-links">
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="index.html#mental-models">Mental Models</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#newsletter" class="btn-sm btn-primary">Subscribe</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <main class="container">
+        <section class="page-hero">
+            <h1>Curated Wisdom Resources</h1>
+            <p>Essential PDF guides, legendary investor memos, mental model checklists, and primary source documents—free to read and download.</p>
+        </section>
+
+        <!-- CATEGORY FILTER PILLS -->
+        <div class="filter-bar">
+            <button class="filter-pill active">All Resources</button>
+            <button class="filter-pill">Investor Memos</button>
+            <button class="filter-pill">Foundational PDFs</button>
+            <button class="filter-pill">Mental Model Guides</button>
+            <button class="filter-pill">Checklists</button>
+        </div>
+
+        <!-- SECTION 1: LEGENDARY INVESTOR MEMOS -->
+        <section class="resource-group">
+            <div class="resource-group-header">
+                <h2>Legendary Investor Memos & Letters</h2>
+                <span>Primary source financial wisdom</span>
+            </div>
+            <div class="resource-grid">
+                
+                <div class="resource-card">
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-memo">Shareholder Letter</span>
+                            <span class="badge">Value Investing</span>
+                        </div>
+                        <h3 class="resource-title">Berkshire Hathaway Letters to Shareholders (1977–Present)</h3>
+                        <div class="resource-author">Warren E. Buffett</div>
+                        <p class="resource-desc">The masterclass of capital allocation, business moats, and corporate governance written over 40+ years.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="file-info">External Archive • Official PDF</span>
+                        <a href="https://www.berkshirehathaway.com/letters/letters.html" target="_blank" class="download-btn">Access Letters ↗</a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-memo">Oaktree Memos</span>
+                            <span class="badge">Market Cycles</span>
+                        </div>
+                        <h3 class="resource-title">Howard Marks Memo Archive: You Can't Predict. You Can Prepare.</h3>
+                        <div class="resource-author">Howard Marks (Oaktree Capital)</div>
+                        <p class="resource-desc">Essential essays on second-order thinking, risk management, and understanding psychological market cycles.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="file-info">Complete Archive • PDF/Web</span>
+                        <a href="https://www.oaktreecapital.com/insights/memos" target="_blank" class="download-btn">Read Memos ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: CLASSIC BOOKS & GUIDES IN PDF -->
+        <section class="resource-group">
+            <div class="resource-group-header">
+                <h2>Foundational Primers & PDF Downloads</h2>
+                <span>Free educational guides & classic works</span>
+            </div>
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-pdf">PDF Guide</span>
+                            <span class="badge">Beginner</span>
+                        </div>
+                        <h3 class="resource-title">If You Can: How Millennials Can Get Rich Slowly</h3>
+                        <div class="resource-author">William H. Bernstein</div>
+                        <p class="resource-desc">A concise 16-page pamphlet explaining asset allocation, index investing, and avoiding financial pitfalls.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="file-info">PDF • 16 Pages • 0.4 MB</span>
+                        <a href="#" class="download-btn">Download PDF ↓</a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge badge-pdf">PDF Book</span>
+                            <span class="badge">Personal Finance</span>
+                        </div>
+                        <h3 class="resource-title">First-Time Investor: Grow and Protect Your Money</h3>
+                        <div class="resource-author">Paul A. Merriman & Richard Buck</div>
+                        <p class="resource-desc">A clear, plain-language primer on index funds, risk management, and long-term compounding mechanics.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="file-info">PDF • 114 Pages • 0.69 MB</span>
+                        <a href="#" class="download-btn">Download PDF ↓</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: MENTAL MODEL CHECKLISTS & WORKSHEETS -->
+        <section class="resource-group">
+            <div class="resource-group-header">
+                <h2>Mental Model Checklists & Toolkits</h2>
+                <span>Practical frameworks for decision making</span>
+            </div>
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge">Checklist</span>
+                            <span class="badge">Psychology</span>
+                        </div>
+                        <h3 class="resource-title">The 25 Cognitive Biases & Psychological Misjudgments</h3>
+                        <div class="resource-author">Adapted from Charlie Munger’s Harvard Talk</div>
+                        <p class="resource-desc">A printable 2-page desk reference detailing the 25 psychological tendencies that cause human financial errors.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="file-info">Printable PDF • 2 Pages</span>
+                        <a href="#" class="download-btn">Download Sheet ↓</a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="card-top">
+                        <div class="card-badges">
+                            <span class="badge">Template</span>
+                            <span class="badge">Investment Analysis</span>
+                        </div>
+                        <h3 class="resource-title">The Pre-Mortem & Inversion Decision Framework</h3>
+                        <div class="resource-author">Gary Klein & Charlie Munger</div>
+                        <p class="resource-desc">A structured workflow template to analyze how an investment or project might fail *before* committing capital.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="file-info">Interactive PDF Template</span>
+                        <a href="#" class="download-btn">Download Framework ↓</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Wisdom & Capital</div>
+                    <p>Curating timeless principles for better thinking, investing, and living.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Categories</h5>
+                    <ul>
+                        <li><a href="index.html#categories">Value Investing</a></li>
+                        <li><a href="index.html#categories">Psychology</a></li>
+                        <li><a href="index.html#mental-models">Mental Models</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="resources.html">Reading Lists</a></li>
+                        <li><a href="resources.html">Investor Memos</a></li>
+                        <li><a href="resources.html">Checklists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">RSS Feed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Wisdom & Capital. Inspired by a love of wisdom and learning.</div>
+                <div>Designed for Github Pages</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
